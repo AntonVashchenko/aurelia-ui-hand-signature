@@ -1,13 +1,15 @@
 <template>
     <section>
   <div>
-      <canvas id="signCanvas" class="signCanvas" width="700" height="230" style="border: 1px solid  black;"></canvas>
+      <canvas id="signCanvas" class="signCanvas" width=${canvasWidth} height=${canvasHeight} style="border: 1px solid  black;" 
+      ref="mySignCanvas" mousedown.delegate="onMouseDown($event)"
+      mousemove.delegate="onMouseMove($event)" mouseup.delegate="onMouseUp($event)"></canvas>
     </div>
       <div>
       <a href="#" class="button" id="btn-download" download="my-file-name.png">Download</a>
-      <button class="button" id="btn-clear">Clear</button>
+      <button class="button" id="btn-clear"  click.delegate="Clear($event)">Clear</button>
     </div>
+    <input ref="imageHrefContainer" input.delegate="action($event.target.value)"></input>
       
     </section>
-  
   </template>

@@ -1,13 +1,11 @@
 import { Router } from 'aurelia-router';
-import { autoinject } from 'aurelia-framework';
+import { autoinject, bindable } from 'aurelia-framework';
 
 
 @autoinject
 export class Page1 {
     public title: string;
-    public canvas: HTMLCanvasElement;
-    public ctx: CanvasRenderingContext2D;
-
+    private myHandSignature: HTMLCanvasElement;
     constructor(public router: Router) {
         // todo
     }
@@ -15,6 +13,11 @@ export class Page1 {
     public canActivate(a, b, c) {
         this.title = b.title;
     }
+   public GetImage(imageHref)
+   {
+       console.log(imageHref);
+
+   }
 
 }
 
