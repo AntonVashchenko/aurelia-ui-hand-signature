@@ -6,7 +6,6 @@ describe('HelloWorld', () => {
 
   beforeEach(() => {
     component = StageComponent
-      .withResources('hello-world')
       .inView('<span>${msg}</span>')
       .boundTo({ msg: 'Hello Aurelia Plugins' });
   });
