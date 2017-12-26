@@ -4,7 +4,7 @@ import { Router, RouterConfiguration} from 'aurelia-router';
 export class App {
     public router: Router;
     public configureRouter(config: RouterConfiguration, router: Router) {
-        config.title = 'Plugin Sample';
+        config.title = 'Aurelia-ui-hand-signature Sample';
         config.map([
             {
                 route: ['', 'page1'],

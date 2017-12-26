@@ -1,4 +1,4 @@
-# aurelia-skeleton-plugin-typescript
+# aurelia-ui-hand-signature
 
 Simple starter kit for making plugins for aurelia
 This also contain a sample
