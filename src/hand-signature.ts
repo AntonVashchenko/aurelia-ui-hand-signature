@@ -2,12 +2,10 @@ import { customAttribute, customElement, inject, autoinject, child, bindable } f
 
 @customElement('hand-signature')
 @inject(Element)
-/*@customAttribute("canvas-width")
-@customAttribute("canvas-height")*/
 export class HandSignature { 
     @bindable canvasWidth = '';
     @bindable canvasHeight = '';
-    @bindable('action');
+    @bindable action;
     private element: any;
     private context: CanvasRenderingContext2D;
     private canvas: HTMLCanvasElement;
@@ -15,21 +13,17 @@ export class HandSignature {
     private mouseX: number;
     private mouseY: number;
     private draw=false;
-    private imageHrefContainer HTMLInputElement;
-   
-    
-    constructor(element: Element) {      
-        this.element=element;      
+    private imageHrefContainer: HTMLInputElement;
+    constructor(element: Element) {
+        this.element = element;
     }
-
     attached(){
-        
-        this.canvas=<HTMLCanvasElement>this.mySignCanvas;
+        this.canvas = <HTMLCanvasElement>this.mySignCanvas;
         this.context = this.canvas.getContext('2d');
         let w = this.canvas.width;
         let h = this.canvas.height;
-        this.mouseX= 0;
-        this.mouseY= 0;
+        this.mouseX = 0;
+        this.mouseY = 0;
         this.CreateSignTemplate(w, h);
     }
     private CreateSignTemplate(width: number, height: number) {
@@ -47,7 +41,7 @@ export class HandSignature {
         this.mouseY = e.pageY - this.element.offsetTop;
         this.draw = true;
         this.context.beginPath();
-        this.context.moveTo( this.mouseX, this.mouseY);
+        this.context.moveTo(this.mouseX, this.mouseY);
     }
     private onMouseMove(e:any){
         if ( this.draw === true) {
@@ -69,68 +63,5 @@ export class HandSignature {
          this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
          this.CreateSignTemplate(this.canvas.width, this.canvas.height);
     }
-    
 
 }
-/*
-let canvas: HTMLCanvasElement;
-let context: CanvasRenderingContext2D;
-
-function CreateSignTemplate(width: number, height: number) {
-
-    context.font = '50px Verdana';
-    context.fillText('X', 10, height - 30);
-    context.beginPath();
-    context.moveTo(50, height - 30);
-    context.lineTo(width - 20, height - 30);
-    context.stroke();
-}
-
-window.onload = () => {
-    canvas = <HTMLCanvasElement>document.getElementById('signCanvas');
-    context = canvas.getContext('2d');
-    let w = canvas.width;
-    let h = canvas.height;
-    let mouse = { x: 0, y: 0 };
-    let draw = false;
-
-    CreateSignTemplate(w, h);
-
-    canvas.addEventListener('mousedown', function (e) {
-        mouse.x = e.pageX - this.offsetLeft;
-        mouse.y = e.pageY - this.offsetTop;
-        draw = true;
-        context.beginPath();
-        context.moveTo(mouse.x, mouse.y);
-    });
-    canvas.addEventListener('mousemove', function (e) {
-        if (draw === true) {
-            mouse.x = e.pageX - this.offsetLeft;
-            mouse.y = e.pageY - this.offsetTop;
-            context.lineTo(mouse.x, mouse.y);
-            context.stroke();
-        }
-        canvas.addEventListener('mouseup', function (e) {
-            mouse.x = e.pageX - this.offsetLeft;
-            mouse.y = e.pageY - this.offsetTop;
-            context.lineTo(mouse.x, mouse.y);
-            context.stroke();
-            draw = false;
-        });
-    });
-    let download = document.getElementById('btn-download');
-    download.addEventListener('click', function (e) {
-        let dataURL = canvas.toDataURL('image/png');
-        download.href = dataURL;
-    });
-    let clear = document.getElementById('btn-clear');
-    clear.addEventListener('click', function (e) {
-        context.clearRect(0, 0, w, h);
-        CreateSignTemplate(w, h);
-    });
-
-};
-*/
-
-
-

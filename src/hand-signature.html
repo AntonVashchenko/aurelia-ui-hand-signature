@@ -5,11 +5,10 @@
       ref="mySignCanvas" mousedown.delegate="onMouseDown($event)"
       mousemove.delegate="onMouseMove($event)" mouseup.delegate="onMouseUp($event)"></canvas>
     </div>
-      <div>
-      <a href="#" class="button" id="btn-download" download="my-file-name.png">Download</a>
+      <div>    
       <button class="button" id="btn-clear"  click.delegate="Clear($event)">Clear</button>
     </div>
-    <input hidden="true" ref="imageHrefContainer" input.delegate="action($event.target.value)"></input>
+    <input hidden="true" ref="imageHrefContainer" ></input>
       
     </section>
   </template>

@@ -13,11 +13,6 @@ export class Page1 {
     public canActivate(a, b, c) {
         this.title = b.title;
     }
-   public GetImage(imageHref)
-   {
-       console.log(imageHref);
-
-   }
 
 }
 
